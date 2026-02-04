@@ -75,132 +75,135 @@
         <div class="content-wrapper">
           <h2 class="content-title" id="contentTitle">Orders</h2>
 
-          <div id="ordersTable" class="table-container">
-            <div class="table-wrapper">
-
-              <div class="table-row">
-                <div class="table-cell header-cell">SKU</div>
-                <div class="table-cell header-cell">Type</div>
-                <div class="table-cell header-cell">Category</div>
-                <div class="table-cell header-cell">Category</div>
-                <div class="table-cell header-cell">Category</div>
-                <div class="table-cell header-cell">Category</div>
-              </div>
-
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-              <div class="table-row">
-                <div class="table-cell">111111111111</div>
-                <div class="table-cell">Wood</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-                <div class="table-cell">Chart</div>
-              </div>
-            </div>
-          </div>
+        
+<div id="ordersTable" class="table-container">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>SKU</th>
+        <th>Type</th>
+        <th>Category</th>
+        <th>Category</th>
+        <th>Category</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+      <tr>
+        <td>111111111111</td>
+        <td>Wood</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+        <td>Chart</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
           <div id="placeholderContent" class="placeholder-content" style="display: none;">
             <p class="placeholder-text">Content will be displayed here</p>

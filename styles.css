@@ -260,66 +260,38 @@ body {
 
 /* Table Styles */
 .table-container {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   overflow: auto;
 }
 
-.table-wrapper {
-  display: flex;
-  flex-direction: column;
+.data-table {
   width: 100%;
-}
-
-.table-row {
-  display: flex;
-  width: 100%;
-}
-
-.table-cell {
-  flex: 1;
-  min-width: 100px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-collapse: collapse;
   font-family: 'Be Vietnam Pro', sans-serif;
+  border: 1px solid rgba(28, 28, 28, 0.5);
+}
+
+.data-table thead th {
+  background-color: var(--light-pink);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: normal;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid rgba(28, 28, 28, 0.5);
+}
+
+.data-table tbody td {
   font-weight: 400;
   font-size: 16px;
   line-height: normal;
   color: black;
-  border: 1px solid rgba(28, 28, 28, 0.5);
-  border-left: 1px solid rgba(28, 28, 28, 0.5);
-  border-right: 1px solid rgba(28, 28, 28, 0.5);
+  padding: 10px;
   text-align: center;
+  border: 1px solid rgba(28, 28, 28, 0.5);
 }
 
-.table-cell:first-child {
-  border-left: 1px solid rgba(28, 28, 28, 0.5);
-}
-
-.table-cell:last-child {
-  border-right: 1px solid rgba(28, 28, 28, 0.5);
-}
-
-.header-cell {
-  background-color: var(--light-pink);
-  font-weight: 700;
-  border-top: 1px solid rgba(28, 28, 28, 0.5);
-}
-
-.table-row:first-child .table-cell {
-  border-top: 1px solid rgba(28, 28, 28, 0.5);
-}
-
-.table-row .table-cell {
-  border-top: none;
-}
-
-.table-row:not(:first-child) .table-cell {
-  border-bottom: 1px solid rgba(28, 28, 28, 0.5);
-}
 
 /* Placeholder Content */
 .placeholder-content {
