@@ -1,7 +1,7 @@
 <?php 
     require "db.php";
 
-    $result = $conn -> query("SELECT * FROM inventory, user_mgmt");
+    $result = $conn -> query("SELECT * FROM inventory");
 
       if (!$result) {
           die("Query failed: " . $conn->error);
@@ -110,9 +110,12 @@
               echo "<td>" . htmlspecialchars($row['weight_lbs']) . "</td>";
               echo "<td>" . htmlspecialchars($row['assembly']) . "</td>";
               echo "<td>" . htmlspecialchars($row['rate']) . "</td>";
-              echo "<td>";
-              echo "<a href='edit-form.php?id=" . htmlspecialchars($row['id']) . "'>Edit</a> ";
-              echo "<a href='delete-form.php?id=" . htmlspecialchars($row['id']) . "' onclick=\"return confirm('Are you sure you want to delete this record?')\">Delete</a>";
+              echo "<td>"; ?>
+              <div class="actions-div">
+                <?php echo "<a href='edit-form.php?id=" . htmlspecialchars($row['id']) . "'>Edit</a> ";
+                echo "<a href='delete-form.php?id=" . htmlspecialchars($row['id']) . "' onclick=\"return confirm('Are you sure you want to delete this record?')\">Delete</a>"; ?>
+              </div>
+              <?php
               echo "</td>";
               echo "</tr>";
           }
@@ -120,120 +123,6 @@
           echo "<tr><td colspan='12'>No records found.</td></tr>";
       }
       ?>
-
-      
-      <!-- <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr>
-      <tr>
-        <td>111111111111</td>
-        <td>Wood</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-        <td>Chart</td>
-      </tr> -->
     </tbody>
   </table>
 </div>

@@ -308,6 +308,12 @@ body {
   color: #a4a4a4;
 }
 
+.actions-div {
+  display: flex;
+  gap: 12px;
+}
+
+
 /*
 @media (max-width: 768px) {
   .dashboard-container {

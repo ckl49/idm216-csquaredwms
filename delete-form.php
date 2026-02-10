@@ -6,7 +6,7 @@
         $stmt = $conn->prepare("DELETE FROM inventory WHERE id = ?");
         $stmt->bind_param("i", $id);
         if ($stmt->execute()) {
-            header("index.php");
+            header("Location: index.php");
             http_response_code(302);
             json_encode(['success' => true, 'data' => 'Record deleted successfully']);
             exit();

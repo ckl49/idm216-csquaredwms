@@ -57,7 +57,7 @@
                                   $id);
 
         if ($update_stmt->execute()) {
-            header("Location: inventory.php");
+            header("Location: index.php");
             exit();
         } else {
             echo "Error updating record: " . $conn->error;
