@@ -109,6 +109,7 @@
           foreach ($inventory_array['data'] as $row) {
               echo "<tr>";
               echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['quant_instock']) . "</td>";
               echo "<td>" . htmlspecialchars($row['sku']) . "</td>";
               echo "<td>" . htmlspecialchars($row['description']) . "</td>";
               echo "<td>" . htmlspecialchars($row['uom_primary']) . "</td>";
