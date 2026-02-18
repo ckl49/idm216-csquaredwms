@@ -1,4 +1,4 @@
-<?php 
+<?php
     function check_api_key(array $env) {
         $valid_key = $env['X_API_KEY'];
         $provided_key = null;

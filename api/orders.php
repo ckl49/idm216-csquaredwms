@@ -1,7 +1,7 @@
 <?php
 
- header('Content-Type: application/json');
-   header('Access-Control-Allow-Headers: Content-Type, Authorization, X-API-KEY');
+    header('Content-Type: application/json');
+    header('Access-Control-Allow-Origin: *');
 
   include '../db.php';
   include '../auth.php';
