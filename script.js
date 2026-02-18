@@ -1,23 +1,23 @@
 
-function login() {
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+// function login() {
+//   const username = document.getElementById('username').value;
+//   const password = document.getElementById('password').value;
   
-  // would validate info here
-  showPage('orders');
-}
+//   // would validate info here
+//   showPage('orders');
+// }
 
-function logout() {
+// function logout() {
 
-  document.getElementById('username').value = '';
-  document.getElementById('password').value = '';
+//   document.getElementById('username').value = '';
+//   document.getElementById('password').value = '';
   
-  // NAVIGATE BACK TO LOGIN
-  showPage('login');
+//   // NAVIGATE BACK TO LOGIN
+//   showPage('login');
   
 
-  navigate('orders');
-}
+//   navigate('orders');
+// }
 
 function showPage(pageName) {
 
@@ -47,16 +47,28 @@ function navigate(section) {
   contentTitle.textContent = section.charAt(0).toUpperCase() + section.slice(1);
   
   const ordersTable = document.getElementById('ordersTable');
+  const inventoryTable = document.getElementById('inventoryTable');
   const placeholderContent = document.getElementById('placeholderContent');
+  
   
   if (section === 'orders') {
     ordersTable.style.display = 'flex';
     placeholderContent.style.display = 'none';
-  } else {
+    inventoryTable.style.display = 'none';
+  } else if (section === 'inventory') {
     ordersTable.style.display = 'none';
     placeholderContent.style.display = 'flex';
+    inventoryTable.style.display = 'flex';
+  } else if (section === 'mpl') {
+    ordersTable.style.display = 'none';
+    placeholderContent.style.display = 'flex';
+    inventoryTable.style.display = 'none';
   }
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  navigate('inventory'); // Default to inventory page on load
+})
 
 
 document.addEventListener('DOMContentLoaded', function() {

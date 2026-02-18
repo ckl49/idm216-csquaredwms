@@ -57,7 +57,7 @@
                                   $id);
 
         if ($update_stmt->execute()) {
-            header("Location: index.php");
+            header("Location: dashboard.php");
             exit();
         } else {
             echo "Error updating record: " . $conn->error;
