@@ -38,6 +38,7 @@
 
         } else {
         $id             = $data['id'];
+        $quant_instock  = $data['quant_instock'];
         $ficha          = $data['ficha'];
         $sku            = $data['sku'];
         $description    = $data['description']; 
