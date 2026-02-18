@@ -1,36 +1,211 @@
 <?php 
-    require "db.php";
+    // session_start();
+    require_once "db.php";
+    require_once "lib/inventory.php";
+    require_once "lib/orders.php";
+    
+    require_once "lib/logout.php";
 
-    $result = $conn -> query("SELECT * FROM inventory");
-
-      if (!$result) {
-          die("Query failed: " . $conn->error);
+    if (isset($_GET['logout'])) {
+        logout();
     }
 
-    $conn -> close();
-?>
+    $inventory_array = fetch_inventory($conn);
+    $orders = fetch_orders($conn);
 
+    // $result = $conn -> query("SELECT * FROM inventory");
+
+
+    //   if (!$result) {
+    //       die("Query failed: " . $conn->error);
+    // }
+
+
+    // $conn -> close();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>C-Squared WMS | Log-in</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <?php 
-    while ($row = $result->fetch_assoc()) {
-        foreach ($row as $column => $value) {
-            echo htmlspecialchars($column) . ": " . htmlspecialchars($value) . "<br>";
-        }
-        // echo "Item: " . $row['id'] . " - Quantity: " . $row['piece_count'] . "<br>";
-        echo "
-            <a href='edit-form.php?id=" . ($row['id']) . "'>Edit</a>
-            <a href='delete-form.php?id=" . ($row['id']) . "'>Delete</a>";
-        echo "<br><br>";
+    <!-- LOGiN PAGE-->
+  <!-- <div id="loginPage" class="page active">
+    <div class="login-container">
+      <div class="login-box">
+        <div class="login-header">
+          <p class="login-title">Log In</p>
+          <p class="login-subtitle">Welcome to C Squared WMS!</p>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Username</label>
+          <div class="input-wrapper">
+            <input type="text" id="username" class="form-input" placeholder="Username">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="input-wrapper">
+            <input type="password" id="password" class="form-input" placeholder="Password">
+          </div>
+        </div>
+        
+        <button class="login-button" onclick="login()">Log In</button>
+      </div>
+    </div>
+  </div> -->
 
-    }
-    ?>
+  <!-- ORDERS PAGE -->
+  <div id="ordersPage" class="page">
+    <div class="dashboard-container">
+      <!-- SIDE-NAV -->
+      <div class="sidebar">
+        <div class="sidebar-top">
+          <h1 class="sidebar-title">C-Squared WMS</h1>
+          <div class="nav-buttons">
+            <button class="nav-button active" onclick="navigate('inventory')">Inventory</button>
+            <button class="nav-button" onclick="navigate('orders')">Orders</button>
+            <button class="nav-button" onclick="navigate('mpl')">MPL</button>
+          </div>
+        </div>
+        <a class="logout-button" href="lib/logout.php">Log out</a>
+      </div>
+
+      <div class="main-content">
+        <div class="content-wrapper">
+          <h2 class="content-title" id="contentTitle">Inventory</h2>
+
+        
+<div id="inventoryTable" class="table-container">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>SKU</th>
+        <th>Description</th>
+        <th>UOM</th>
+        <th>Piece Count</th>
+        <th>Length</th>
+        <th>Width</th>
+        <th>Height</th>
+        <th>Weight</th>
+        <th>Assembly</th>
+        <th>Price Rate</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php 
+        if ($inventory_array['success']) {
+          foreach ($inventory_array['data'] as $row) {
+              echo "<tr>";
+              echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['sku']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['description']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['uom_primary']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['piece_count']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['length_inches']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['width_inches']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['height_inches']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['weight_lbs']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['assembly']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['rate']) . "</td>";
+              echo "<td>"; ?>
+              <div class="actions-div">
+                <?php echo "<a href='edit-form.php?id=" . htmlspecialchars($row['id']) . "'>Edit</a> ";
+                echo "<a href='delete-form.php?id=" . htmlspecialchars($row['id']) . "' onclick=\"return confirm('Are you sure you want to delete this record?')\">Delete</a>"; ?>
+              </div>
+              <?php
+              echo "</td>";
+              echo "</tr>";
+          }
+      } else {
+          echo "<tr><td colspan='12'>No records found.</td></tr>";
+      }
+      ?>
+    </tbody>
+  </table>
+</div>
+<div id="ordersTable" class="table-container">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>FICHA</th>
+        <th>Description 1</th>
+        <th>Description 2</th>
+        <th>Quantity</th>
+        <th>Quantity Unit</th>
+        <th>Footage</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php 
+        if ($orders['success']) {
+          foreach ($orders['data'] as $row) {
+              $id = (int)$row['id'];
+
+              echo "<tr>";
+              echo "<td>" . htmlspecialchars($row['ficha']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['description1']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['description2']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['quantity']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['quantity_unit']) . "</td>";
+              echo "<td>" . htmlspecialchars($row['footage_quantity']) . "</td>";
+              echo "<td>"; ?>
+              
+              <div class="actions-div">
+                <?php 
+                  echo "<a href='edit-form.php?id=$id'>Edit</a> ";
+                  echo "<a href='delete-form.php?id=$id' onclick=\"return confirm('Are you sure you want to delete this record?')\">Delete</a>"; 
+                ?>
+              </div>
+              
+              <?php
+              echo "</td>";
+              echo "</tr>";
+          }
+      } else {
+          echo "<tr><td colspan='12'>No records found.</td></tr>";
+      }
+      ?>
+    </tbody>
+  </table>
+</div>
+
+
+          <div id="placeholderContent" class="placeholder-content" style="display: none;">
+            <p class="placeholder-text">Content will be displayed here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- ORDERS TABLE -->
+
+
+
+          <!-- <div id="placeholderContent" class="placeholder-content" style="display: none;">
+            <p class="placeholder-text">Content will be displayed here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <script src="script.js"></script>
 </body>
 </html>
